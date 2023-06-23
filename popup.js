@@ -10,8 +10,19 @@ chrome.tabs.query({ currentWindow: true }, function (tabs) {
   var tabContainer = document.getElementById("tab-container");
   myTabsArray.forEach(function (tab) {
     var tabElement = document.createElement("div");
-    tabElement.textContent = tab.title;
     tabElement.className = "tabs";
+
+
+    var iconElement = document.createElement("img");
+    iconElement.src = tab.favIconUrl;
+    iconElement.className = "tab-icon";
+    tabElement.appendChild(iconElement);
+
+    
+    var nameElement = document.createElement("span");
+    nameElement.textContent = tab.title;
+    nameElement.className = "tab-name";
+    tabElement.appendChild(nameElement);
 
     tabElement.addEventListener("click", function () {
       chrome.tabs.update(tab.id, { active: true });
