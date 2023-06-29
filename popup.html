@@ -3,13 +3,19 @@
   <head>
     <title>Tabify</title>
     <link rel="stylesheet" type="text/css" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-7jIO7MtwIDifjpmsLCEM6fGZ02/8D3N66zyB64t5XTdJrCDK4iGhH8iV8qQED2Wktu3fTsfyFS1gWY9y1QUpnQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="popup.js"></script>
   </head>
   <body>
     <h1>Tabify - Tab Manager</h1>
-    <div class="topnav"> 
-      <input type="text" id="searchbar" placeholder="Search for a tab...">
+    <h5 id="tab-count"></h5>
+    <div class="topnav">
+      <input type="text" id="searchbar" placeholder="Search for a tab..." autofocus>
     </div>
     <div id="tab-container"></div>
+    <div class="botbar">
+      <button type="button" id="highlightDuplicatesBtn">Highlight Duplicates</button>
+      <button type="button" id="deleteSelectedTabsBtn">Delete Selected Tabs</button>
+    </div>
   </body>
 </html>

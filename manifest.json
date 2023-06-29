@@ -18,5 +18,5 @@
     }
   },
   "host_permissions": ["https://developer.chrome.com/*"],
-  "permissions": ["tabGroups", "tabs"]
+  "permissions": ["tabGroups", "tabs", "storage", "contextMenus"]
 }
