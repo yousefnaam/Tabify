@@ -23,6 +23,12 @@ h1, h5, p {
 }
 .tab-name {
   color: #FFFFFF;
+  display: inline-block;
+  max-width: calc(100% - 32px); /* Adjust the value as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 32px; 
 }
 
 h3,
@@ -62,7 +68,10 @@ p {
   color: #FFFFFF;
   display: flex;
   align-items: center;
-  padding: 2px;
+  padding: 4px;
+  position: relative;
+
+  
 }
 
 h5#tab-count {
@@ -102,7 +111,7 @@ h1, p {
 
 .botbar {
   background-color: #333333;
-  padding: 1rem;
+  padding: 10px;
   text-align: center;
   color: #CCCCCC;
   position: fixed;
@@ -132,3 +141,46 @@ h1, p {
   color: white;
 }
 
+button {
+  padding: 8px 16px;
+  font-size: 14px; 
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #555555;
+  color: #FFFFFF;
+}
+
+button:hover {
+  background-color: #00897B;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Styles for the highlightDuplicatesBtn */
+#highlightDuplicatesBtn {
+  background-color: #7F7F96;
+  margin-right: 10px;
+}
+
+#highlightDuplicatesBtn:hover {
+  background-color: #5C5C75;
+}
+
+/* Styles for the deleteSelectedTabsBtn */
+#deleteSelectedTabsBtn {
+  background-color: #F44336;
+}
+
+#deleteSelectedTabsBtn:hover {
+  background-color: #D32F2F;
+}
+.tab-checkbox {
+  display: inline-block;
+  margin-left: auto;
+  position: absolute;
+  right: 10px;
+}

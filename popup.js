@@ -105,7 +105,7 @@ function highlightDuplicates() {
 
   duplicateCountMap.forEach(function (count, tabTitle) {
     var duplicateTabs = Array.from(
-      document.querySelectorAll(".tabs.highlighted .tab-name")
+      document.querySelectorAll('.tabs.highlighted .tab-name:not(.checkboxed)')
     );
     var selectedCount = 0;
     duplicateTabs.forEach(function (tab) {
@@ -115,25 +115,32 @@ function highlightDuplicates() {
       ) {
         var checkbox = tab.parentNode.querySelector(".tab-checkbox");
         checkbox.checked = true;
+        tab.classList.add("checkboxed");
         selectedCount++;
-      } else {
-        var checkbox = tab.parentNode.querySelector(".tab-checkbox");
-        checkbox.checked = false;
       }
     });
   });
 }
 
+
+
 function deleteSelectedTabs() {
   var selectedTabs = document.querySelectorAll(".tab-checkbox:checked");
   var tabsToDelete = Array.from(selectedTabs).map(function (checkbox) {
-    return checkbox.parentNode;
+    return checkbox.parentNode; 
   });
 
+  
   tabsToDelete.forEach(function (tab) {
     var tabId = parseInt(tab.dataset.tabId, 10);
     chrome.tabs.remove(tabId, function () {
       tab.parentNode.removeChild(tab);
+      updateTabCount(); 
     });
   });
+}
+function updateTabCount() {
+  var tabCount = document.querySelectorAll(".tabs").length;
+  var tabCountElement = document.getElementById("tab-count");
+  tabCountElement.textContent = "You have " + tabCount + " tabs open";
 }
